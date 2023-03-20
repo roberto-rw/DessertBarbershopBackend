@@ -1,8 +1,10 @@
 package org.example.persistencia;
 
+import com.roberto_rw.entidades.Cliente;
 import com.roberto_rw.entidades.Servicio;
 import com.roberto_rw.entidades.Usuario;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.example.conexion.IConexionBD;
 import org.example.interfacesDAO.IUsuariosDAO;
 
@@ -43,6 +45,10 @@ public class UsuariosDAO implements IUsuariosDAO {
 
     @Override
     public List<Usuario> obtenerUsuarios() {
-        return null;
+        em.getTransaction().begin();
+        TypedQuery<Usuario> selectQuery = em.createQuery("SELECT u FROM Usuario u", Usuario.class);
+        List<Usuario> usuarios = selectQuery.getResultList();
+        em.getTransaction().commit();
+        return usuarios;
     }
 }

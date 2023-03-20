@@ -4,6 +4,7 @@ import com.roberto_rw.entidades.Cita;
 import com.roberto_rw.entidades.Cliente;
 import com.roberto_rw.entidades.Empleado;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.example.conexion.IConexionBD;
 import org.example.interfacesDAO.IEmpleadosDAO;
 
@@ -43,6 +44,10 @@ public class EmpleadosDAO implements IEmpleadosDAO {
 
     @Override
     public List<Empleado> obtenerEmpleados() {
-        return null;
+        em.getTransaction().begin();
+        TypedQuery<Empleado> selectQuery = em.createQuery("SELECT e FROM Empleado e", Empleado.class);
+        List<Empleado> empleados = selectQuery.getResultList();
+        em.getTransaction().commit();
+        return empleados;
     }
 }

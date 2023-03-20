@@ -3,6 +3,8 @@ package org.example.persistencia;
 import com.roberto_rw.entidades.Cita;
 import com.roberto_rw.entidades.Cliente;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import org.example.conexion.IConexionBD;
 import org.example.interfacesDAO.IClientesDAO;
 
@@ -43,6 +45,10 @@ public class ClientesDAO implements IClientesDAO {
 
     @Override
     public List<Cliente> obtenerClientes() {
-        return null;
+        em.getTransaction().begin();
+        TypedQuery<Cliente> selectQuery = em.createQuery("SELECT c FROM Cliente c", Cliente.class);
+        List<Cliente> clientes = selectQuery.getResultList();
+        em.getTransaction().commit();
+        return clientes;
     }
 }
