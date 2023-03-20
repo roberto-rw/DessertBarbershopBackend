@@ -50,4 +50,14 @@ public class EmpleadosDAO implements IEmpleadosDAO {
         em.getTransaction().commit();
         return empleados;
     }
+
+    @Override
+    public List<Empleado> obtenerEmpleadosPeluqueros() {
+        em.getTransaction().begin();
+        TypedQuery<Empleado> query = em.createQuery("SELECT e FROM Empleado e WHERE e.puesto = :puesto", Empleado.class);
+        query.setParameter("puesto", "PELUQUERO");
+        List<Empleado> empleados = query.getResultList();
+        em.getTransaction().commit();
+        return empleados;
+    }
 }

@@ -1,6 +1,7 @@
 package org.example.interfacesDAO;
 
 import com.roberto_rw.entidades.Cita;
+import com.roberto_rw.entidades.Empleado;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,5 +14,9 @@ public interface ICitasDAO {
     public Cita obtenerCita(Long id);
     public List<Cita> obtenerCitasPorPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin);
     public List<Cita> obtenerCitas();
+
+    public List<Cita> obtenerCitasPorCliente(String nombreCliente);
+
+    public List<Cita> obtenerCitasPorEmpleado(Empleado empleado);
 
 }

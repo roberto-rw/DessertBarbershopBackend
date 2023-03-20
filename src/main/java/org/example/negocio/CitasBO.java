@@ -1,6 +1,7 @@
 package org.example.negocio;
 
 import com.roberto_rw.entidades.Cita;
+import com.roberto_rw.entidades.Empleado;
 import org.example.fachadas.IPersistencia;
 import org.example.fachadas.Persistencia;
 import org.example.factory.DAOFactory;
@@ -46,6 +47,16 @@ public class CitasBO implements ICitasBO {
     @Override
     public List<Cita> obtenerCitas() {
         return persistencia.obtenerCitas();
+    }
+
+    @Override
+    public List<Cita> obtenerCitasPorCliente(String nombreCliente) {
+        return persistencia.obtenerCitasPorCliente(nombreCliente);
+    }
+
+    @Override
+    public List<Cita> obtenerCitasPorEmpleado(Empleado empleado) {
+        return persistencia.obtenerCitasPorEmpleado(empleado);
     }
 
     public boolean seEmpalman(LocalDateTime fechaInicio, LocalDateTime fechaFin){
