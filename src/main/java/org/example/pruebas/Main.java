@@ -17,8 +17,6 @@ public class Main {
     private static EntityManager em = entityManagerFactory.createEntityManager();
     public static void main(String[] args) {
 
-
-
         em.getTransaction().begin();
 
         Cita cita = new Cita();
@@ -38,8 +36,8 @@ public class Main {
         cita.setEmpleado(empleado);
         cita.setServicio(servicio);
         cita.setUsuario(usuario);
-        cita.setFechaInicio(LocalDateTime.of(2023, 3, 12, 16, 21, 0, 0));
-        cita.setFechaFin(LocalDateTime.of(2023, 3, 12, 19, 0, 0, 0));
+        cita.setFechaInicio(LocalDateTime.of(2023, 3, 12, 17, 21, 0, 0));
+        cita.setFechaFin(LocalDateTime.of(2023, 3, 12, 20, 0, 0, 0));
 
         Persistencia persistencia = new Persistencia();
         CitasBO  citasBO = new CitasBO();

@@ -94,15 +94,32 @@ public class CitasDAO implements ICitasDAO {
 
         em.getTransaction().begin();
         //Elimina las citas pasadas
-        Query deleteQuery = em.createQuery("DELETE FROM Cita c WHERE c.fechaFin < :currentDate");
-        deleteQuery.setParameter("currentDate", currentDate);
-        deleteQuery.executeUpdate();
+        //Query deleteQuery = em.createQuery("DELETE FROM Cita c WHERE c.fechaFin < :currentDate");
+        //deleteQuery.setParameter("currentDate", currentDate);
+        //deleteQuery.executeUpdate();
 
         //Consulta todas las citas
         TypedQuery<Cita> selectQuery = em.createQuery("SELECT c FROM Cita c", Cita.class);
         List<Cita> citas = selectQuery.getResultList();
 
         em.getTransaction().commit();
+        return citas;
+    }
+
+    @Override
+    public List<Cita> obtenerCitasPorCliente(String nombreCliente) {
+        TypedQuery<Cita> query = em.createQuery("SELECT c FROM Cita c JOIN c.cliente cli WHERE cli.nombre LIKE :nombreCliente", Cita.class);
+        query.setParameter("nombreCliente", "%"+nombreCliente+"%");
+        List<Cita> citas = query.getResultList();
+        return citas;
+    }
+
+    @Override
+    public List<Cita> obtenerCitasPorEmpleado(Empleado empleado) {
+        TypedQuery<Cita> query = em.createQuery("SELECT c FROM Cita c WHERE c.empleado = :idEmpleado", Cita.class);
+        query.setParameter("idEmpleado", empleado);
+        List<Cita> citas = query.getResultList();
+
         return citas;
     }
 }

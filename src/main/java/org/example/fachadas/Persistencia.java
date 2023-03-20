@@ -54,6 +54,16 @@ public class Persistencia implements IPersistencia{
     }
 
     @Override
+    public List<Cita> obtenerCitasPorCliente(String nombreCliente) {
+        return citasDAO.obtenerCitasPorCliente(nombreCliente);
+    }
+
+    @Override
+    public List<Cita> obtenerCitasPorEmpleado(Empleado empleado) {
+        return citasDAO.obtenerCitasPorEmpleado(empleado);
+    }
+
+    @Override
     public void agregarCliente(Cliente cliente) {
         clientesDAO.agregarCliente(cliente);
     }
@@ -101,6 +111,11 @@ public class Persistencia implements IPersistencia{
     @Override
     public List<Empleado> obtenerEmpleados() {
         return empleadosDAO.obtenerEmpleados();
+    }
+
+    @Override
+    public List<Empleado> obtenerEmpleadosPeluqueros() {
+        return empleadosDAO.obtenerEmpleadosPeluqueros();
     }
 
     @Override

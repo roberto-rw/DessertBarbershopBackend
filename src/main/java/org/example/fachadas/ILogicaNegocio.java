@@ -14,6 +14,10 @@ public interface ILogicaNegocio {
     public List<Cita> obtenerCitasPorPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin);
     public List<Cita> obtenerCitas();
 
+    public List<Cita> obtenerCitasPorCliente(String nombreCliente);
+
+    public List<Cita> obtenerCitasPorEmpleado(Empleado empleado);
+
     //Clientes
     public void agregarCliente(Cliente cliente);
 
@@ -34,6 +38,8 @@ public interface ILogicaNegocio {
     public Empleado obtenerEmpleado(Long id);
     public List<Empleado> obtenerEmpleados();
 
+    public List<Empleado> obtenerEmpleadosPeluqueros();
+
     //Servicios
     public void agregarServicio(Servicio servicio);
 
@@ -53,4 +59,5 @@ public interface ILogicaNegocio {
 
     public Usuario obtenerUsuario(Long id);
     public List<Usuario> obtenerUsuarios();
+
 }
