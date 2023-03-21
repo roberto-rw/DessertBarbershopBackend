@@ -7,7 +7,7 @@ import org.example.interfacesDAO.*;
 import org.example.persistencia.*;
 
 public class DAOFactory {
-    private static final IConexionBD conexionBD = new ConexionBD();
+    private static final IConexionBD conexionBD = ConexionBD.obtenerInstancia();
 
     public static ICitasDAO crearCitasDAO(){
         return new CitasDAO(conexionBD);
