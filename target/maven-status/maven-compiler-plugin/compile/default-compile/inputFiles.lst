@@ -1,47 +1,29 @@
-<<<<<<< HEAD
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\conexion\ConexionBD.java
-D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\pruebas\Main.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\factory\BOFactory.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesDAO\IUsuariosDAO.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\persistencia\ServiciosDAO.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesBO\ICitasBO.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesBO\IUsuariosBO.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\persistencia\CitasDAO.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\negocio\ClientesBO.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\pruebas\Main.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\persistencia\EmpleadosDAO.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\conexion\IConexionBD.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\negocio\UsuariosBO.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesDAO\IClientesDAO.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesDAO\IEmpleadosDAO.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesDAO\IServiciosDAO.java
-D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesDAO\IUsuariosDAO.java
-D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\persistencia\ServiciosDAO.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\persistencia\ClientesDAO.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\fachadas\ILogicaNegocio.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesDAO\ICitasDAO.java
-D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesBO\ICitasBO.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\fachadas\Persistencia.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\negocio\CitasBO.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesBO\IClientesBO.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\fachadas\IPersistencia.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\fachadas\LogicaNegocio.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\persistencia\UsuariosDAO.java
-D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\persistencia\CitasDAO.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesBO\IServiciosBO.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\interfacesBO\IEmpleadosBO.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\negocio\EmpleadosBO.java
+D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\negocio\ServiciosBO.java
 D:\Documentos HDD\Sexto Semestre\Proyecto de Software Integrador\DessertBarbershop\DessertBarbershopBackend\src\main\java\org\example\factory\DAOFactory.java
-=======
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\negocio\CitasBO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\factory\DAOFactory.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\interfacesBO\ICitasBO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\persistencia\CitasDAO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\persistencia\ServiciosDAO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\fachadas\ILogicaNegocio.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\fachadas\Persistencia.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\interfacesDAO\IServiciosDAO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\interfacesDAO\IUsuariosDAO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\factory\BOFactory.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\interfacesDAO\ICitasDAO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\interfacesDAO\IClientesDAO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\conexion\ConexionBD.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\fachadas\IPersistencia.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\persistencia\ClientesDAO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\persistencia\UsuariosDAO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\persistencia\EmpleadosDAO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\interfacesBO\IEmpleadosBO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\fachadas\LogicaNegocio.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\conexion\IConexionBD.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\pruebas\Main.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\interfacesDAO\IEmpleadosDAO.java
-D:\Documentos\DessertBarberShop - Backend\DessertBarbershopBackend\src\main\java\org\example\negocio\EmpleadosBO.java
->>>>>>> d5b03811385299345e4bfacb72c073d4faa729be

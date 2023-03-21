@@ -1,9 +1,7 @@
 package org.example.factory;
 
-import org.example.interfacesBO.ICitasBO;
-import org.example.interfacesBO.IEmpleadosBO;
-import org.example.negocio.CitasBO;
-import org.example.negocio.EmpleadosBO;
+import org.example.interfacesBO.*;
+import org.example.negocio.*;
 
 public class BOFactory {
 
@@ -12,4 +10,14 @@ public class BOFactory {
     }
 
     public static IEmpleadosBO crearEmpleadosBO(){return new EmpleadosBO();}
+    public static IUsuariosBO crearUsuariosBO(){
+        return new UsuariosBO();
+    }
+    public static IClientesBO crearClientesBO(){
+        return new ClientesBO();
+    }
+    public static IServiciosBO crearServiciosBO(){
+        return new ServiciosBO();
+    }
 }
+
