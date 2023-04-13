@@ -8,6 +8,7 @@ import org.example.conexion.IConexionBD;
 import org.example.interfacesDAO.ICitasDAO;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 public class CitasDAO implements ICitasDAO {
@@ -122,4 +123,39 @@ public class CitasDAO implements ICitasDAO {
 
         return citas;
     }
+
+    @Override
+    public List<Cita> obtenerCitasPorEmpleadoClienteFecha(LocalDateTime fecha, Empleado empleado, String cliente){
+        String query = "SELECT c FROM Cita c";
+
+
+        if(cliente != null){
+            query += " JOIN c.cliente cl WHERE cl.nombre LIKE :nombre";
+            query += " AND c.fechaInicio BETWEEN :inicio AND :fin";
+        } else{
+            query += " WHERE c.fechaInicio BETWEEN :inicio AND :fin";
+        }
+
+        if(empleado != null){
+            query += " AND c.empleado = :empleado";
+        }
+
+        TypedQuery<Cita> tquery = em.createQuery(query, Cita.class);
+
+        tquery.setParameter("inicio", fecha.with(LocalTime.MIN));
+        tquery.setParameter("fin", fecha.with(LocalTime.MAX));
+
+        if(cliente != null){
+            tquery.setParameter("nombre", "%"+cliente+"%");
+        }
+        if(empleado != null){
+            tquery.setParameter("empleado", empleado);
+        }
+
+        List<Cita> citas = tquery.getResultList();
+
+        return citas;
+
+    }
+
 }

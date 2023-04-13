@@ -64,6 +64,11 @@ public class Persistencia implements IPersistencia{
     }
 
     @Override
+    public List<Cita> obtenerCitasPorEmpleadoClienteFecha(LocalDateTime fecha, Empleado empleado, String cliente){
+        return citasDAO.obtenerCitasPorEmpleadoClienteFecha(fecha, empleado, cliente);
+    }
+
+    @Override
     public void agregarCliente(Cliente cliente) {
         clientesDAO.agregarCliente(cliente);
     }
