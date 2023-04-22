@@ -26,7 +26,7 @@ public class LogicaNegocio implements ILogicaNegocio{
 
     //Citas
     @Override
-    public void agregarCita(Cita cita) {
+    public void agregarCita(Cita cita) throws Exception{
         citasBO.agregarCita(cita);
     }
 
@@ -36,7 +36,7 @@ public class LogicaNegocio implements ILogicaNegocio{
     }
 
     @Override
-    public void actualizarCita(Cita cita) {
+    public void actualizarCita(Cita cita) throws Exception{
         citasBO.actualizarCita(cita);
     }
 
@@ -178,5 +178,9 @@ public class LogicaNegocio implements ILogicaNegocio{
         return usuariosBO.obtenerUsuarios();
     }
 
+    @Override
+    public List<Cita> obtenerCitasPorEmpleadoClienteFecha(LocalDateTime fecha, Empleado empleado, String cliente){
+        return citasBO.obtenerCitasPorEmpleadoClienteFecha(fecha, empleado, cliente);
+    }
 
 }

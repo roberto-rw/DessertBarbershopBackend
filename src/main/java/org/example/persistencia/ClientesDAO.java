@@ -51,4 +51,6 @@ public class ClientesDAO implements IClientesDAO {
         em.getTransaction().commit();
         return clientes;
     }
+
+
 }

@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ILogicaNegocio {
     //Citas
-    public void agregarCita(Cita cita);
+    public void agregarCita(Cita cita) throws Exception;
     public void eliminarCita(Cita cita);
-    public void actualizarCita(Cita cita);
+    public void actualizarCita(Cita cita) throws Exception;
     public Cita obtenerCita(Long id);
     public List<Cita> obtenerCitasPorPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin);
     public List<Cita> obtenerCitas();
@@ -17,6 +17,9 @@ public interface ILogicaNegocio {
     public List<Cita> obtenerCitasPorCliente(String nombreCliente);
 
     public List<Cita> obtenerCitasPorEmpleado(Empleado empleado);
+
+    public List<Cita> obtenerCitasPorEmpleadoClienteFecha(LocalDateTime fecha, Empleado empleado, String cliente);
+
 
     //Clientes
     public void agregarCliente(Cliente cliente);
