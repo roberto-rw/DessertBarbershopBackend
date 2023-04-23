@@ -47,6 +47,10 @@ public class Persistencia implements IPersistencia{
     public List<Cita> obtenerCitasPorPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
         return citasDAO.obtenerCitasPorPeriodo(fechaInicio, fechaFin);
     }
+    @Override
+    public List<Cita> obtenerCitasPorPeriodoExcluyendoCita(LocalDateTime fechaInicio, LocalDateTime fechaFin, Long idCita){
+        return citasDAO.obtenerCitasPorPeriodoExcluyendoCita(fechaInicio, fechaFin, idCita);
+    }
 
     @Override
     public List<Cita> obtenerCitas() {

@@ -11,28 +11,32 @@ import org.example.factory.DAOFactory;
 import org.example.negocio.CitasBO;
 import org.example.persistencia.CitasDAO;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class Main {
     private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myPersistenceUnit");
     private static EntityManager em = entityManagerFactory.createEntityManager();
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
         ILogicaNegocio logicaNegocio = new LogicaNegocio();
 
-        Cita cita = logicaNegocio.obtenerCita(12L);
-        cita.setEmpleado(logicaNegocio.obtenerEmpleado(1L));
+//        Cita cita = logicaNegocio.obtenerCita(12L);
+//        cita.setFechaInicio(LocalDateTime.of(2023,04,22,2,0,0));
+//        cita.setFechaFin(LocalDateTime.of(2023,04,22,3,0,0));
 
 
-//        List<Cita> citas = persistencia.obtenerCitas();
-//
-//        for (Cita c: citas){
-//            System.out.println(c.getCliente().getNombre() + " " + c.getFechaFin());
-//        }
-//        persistencia.agregarCita(cita);
+        Cita cita = new Cita();
+        cita.setFechaInicio(LocalDateTime.of(2023,04,22,13,0,0));
+        cita.setFechaFin(LocalDateTime.of(2023,04,22,14,0,0));
 
-
+        try{
+            logicaNegocio.agregarCita(cita);
+            //logicaNegocio.actualizarCita(cita);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 }

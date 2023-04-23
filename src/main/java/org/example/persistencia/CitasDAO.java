@@ -55,11 +55,15 @@ public class CitasDAO implements ICitasDAO {
         Cliente cliente = em.find(Cliente.class, cita.getCliente().getId());
         Servicio servicio = em.find(Servicio.class, cita.getServicio().getId());
         Usuario usuario = em.find(Usuario.class, cita.getUsuario().getId());
+        LocalDateTime fechaInicio = nuevaCita.getFechaInicio();
+        LocalDateTime fechaFin = nuevaCita.getFechaFin();
 
         cita.setEmpleado(empleado);
         cita.setCliente(cliente);
         cita.setServicio(servicio);
         cita.setUsuario(usuario);
+        cita.setFechaInicio(fechaInicio);
+        cita.setFechaFin(fechaFin);
 
         em.persist(cita);
 
@@ -71,20 +75,47 @@ public class CitasDAO implements ICitasDAO {
         em.getTransaction().begin();
         Cita cita = em.find(Cita.class, id);
         em.getTransaction().commit();
+        em.clear();
         return cita;
     }
 
     @Override
     public List<Cita> obtenerCitasPorPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+
         em.getTransaction().begin();
-        TypedQuery<Cita> query = em.createQuery(
+        TypedQuery<Cita> query;
+        query = em.createQuery(
                 "SELECT c FROM Cita c " +
                         "WHERE c.fechaInicio BETWEEN :fechaInicio AND :fechaFin " +
                         "   OR c.fechaFin BETWEEN :fechaInicio AND :fechaFin",
                 Cita.class);
+
         query.setParameter("fechaInicio", fechaInicio);
         query.setParameter("fechaFin", fechaFin);
+
         List<Cita> citas = query.getResultList();
+
+        em.getTransaction().commit();
+        return citas;
+    }
+
+    @Override
+    public List<Cita> obtenerCitasPorPeriodoExcluyendoCita(LocalDateTime fechaInicio, LocalDateTime fechaFin, Long idCita) {
+        em.getTransaction().begin();
+        TypedQuery<Cita> query;
+        query = em.createQuery(
+                "SELECT c FROM Cita c " +
+                        "WHERE ((c.fechaInicio BETWEEN :fechaInicio AND :fechaFin) " +
+                        "   OR (c.fechaFin BETWEEN :fechaInicio AND :fechaFin)) " +
+                        "AND c.id != :idCita",
+                Cita.class);
+
+        query.setParameter("fechaInicio", fechaInicio);
+        query.setParameter("fechaFin", fechaFin);
+        query.setParameter("idCita", idCita);
+
+        List<Cita> citas = query.getResultList();
+
         em.getTransaction().commit();
         return citas;
     }

@@ -13,6 +13,7 @@ public interface IPersistencia {
     public void actualizarCita(Cita cita);
     public Cita obtenerCita(Long id);
     public List<Cita> obtenerCitasPorPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin);
+    public List<Cita> obtenerCitasPorPeriodoExcluyendoCita(LocalDateTime fechaInicio, LocalDateTime fechaFin, Long idCita);
     public List<Cita> obtenerCitas();
 
     public List<Cita> obtenerCitasPorCliente(String nombreCliente);

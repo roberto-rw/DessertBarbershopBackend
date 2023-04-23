@@ -30,7 +30,7 @@ public class CitasBO implements ICitasBO {
 
     @Override
     public void actualizarCita(Cita cita) throws Exception{
-        if(seEmpalman(cita.getFechaInicio(), cita.getFechaFin())){
+        if(seEmpalmanActualizar(cita.getFechaInicio(), cita.getFechaFin(), cita.getId())){
             throw new Exception("Las Fechas se empalman");
         }
         persistencia.actualizarCita(cita);
@@ -63,6 +63,12 @@ public class CitasBO implements ICitasBO {
 
     public boolean seEmpalman(LocalDateTime fechaInicio, LocalDateTime fechaFin){
         List<Cita> citasEmpalmadas = persistencia.obtenerCitasPorPeriodo(fechaInicio, fechaFin);
+        if(citasEmpalmadas.isEmpty()) return false;
+        return true;
+    }
+
+    public boolean seEmpalmanActualizar(LocalDateTime fechaInicio, LocalDateTime fechaFin, Long idCita){
+        List<Cita> citasEmpalmadas = persistencia.obtenerCitasPorPeriodoExcluyendoCita(fechaInicio, fechaFin, idCita);
         if(citasEmpalmadas.isEmpty()) return false;
         return true;
     }
