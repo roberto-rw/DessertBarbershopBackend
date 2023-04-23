@@ -27,16 +27,31 @@ public class Main {
 //        cita.setFechaFin(LocalDateTime.of(2023,04,22,3,0,0));
 
 
-        Cita cita = new Cita();
-        cita.setFechaInicio(LocalDateTime.of(2023,04,22,13,0,0));
-        cita.setFechaFin(LocalDateTime.of(2023,04,22,14,0,0));
+//        Cita cita = new Cita();
+//        cita.setFechaInicio(LocalDateTime.of(2023,04,22,13,0,0));
+//        cita.setFechaFin(LocalDateTime.of(2023,04,22,14,0,0));
+//
+//        try{
+//            logicaNegocio.agregarCita(cita);
+//            //logicaNegocio.actualizarCita(cita);
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
 
-        try{
-            logicaNegocio.agregarCita(cita);
-            //logicaNegocio.actualizarCita(cita);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        CitasBO citasBO = new CitasBO();
+
+        LocalDateTime inicio = LocalDateTime.of(2023,04,23,13,25);
+        LocalDateTime fin = LocalDateTime.of(2023,04,23,13,35);
+
+
+        //System.out.println(citasBO.seEmpalman(inicio, fin));
+
+//        List<Cita> citasEmpalmadas = logicaNegocio.obtenerCitasPorPeriodo(inicio, fin);
+
+//        for(Cita c: citasEmpalmadas){
+//            System.out.println(c);
+//        }
+
 
     }
 }

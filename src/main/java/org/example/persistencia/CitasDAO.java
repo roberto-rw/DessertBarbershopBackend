@@ -9,6 +9,7 @@ import org.example.interfacesDAO.ICitasDAO;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CitasDAO implements ICitasDAO {
@@ -81,13 +82,13 @@ public class CitasDAO implements ICitasDAO {
 
     @Override
     public List<Cita> obtenerCitasPorPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-
         em.getTransaction().begin();
         TypedQuery<Cita> query;
         query = em.createQuery(
                 "SELECT c FROM Cita c " +
-                        "WHERE c.fechaInicio BETWEEN :fechaInicio AND :fechaFin " +
-                        "   OR c.fechaFin BETWEEN :fechaInicio AND :fechaFin",
+                        "WHERE (c.fechaInicio >= :fechaInicio AND c.fechaInicio < :fechaFin) " +
+                        "   OR (c.fechaFin > :fechaInicio AND c.fechaFin <= :fechaFin) " +
+                        "   OR (c.fechaInicio <= :fechaInicio AND c.fechaFin >= :fechaFin)",
                 Cita.class);
 
         query.setParameter("fechaInicio", fechaInicio);
@@ -96,7 +97,13 @@ public class CitasDAO implements ICitasDAO {
         List<Cita> citas = query.getResultList();
 
         em.getTransaction().commit();
-        return citas;
+        List<Cita> citasSuperpuestas = new ArrayList<>();
+        for (Cita cita : citas) {
+            if (cita.getFechaInicio().isBefore(fechaFin) && cita.getFechaFin().isAfter(fechaInicio)) {
+                citasSuperpuestas.add(cita);
+            }
+        }
+        return citasSuperpuestas;
     }
 
     @Override
@@ -105,9 +112,10 @@ public class CitasDAO implements ICitasDAO {
         TypedQuery<Cita> query;
         query = em.createQuery(
                 "SELECT c FROM Cita c " +
-                        "WHERE ((c.fechaInicio BETWEEN :fechaInicio AND :fechaFin) " +
-                        "   OR (c.fechaFin BETWEEN :fechaInicio AND :fechaFin)) " +
-                        "AND c.id != :idCita",
+                        "WHERE ((c.fechaInicio >= :fechaInicio AND c.fechaInicio < :fechaFin) " +
+                        "       OR (c.fechaFin > :fechaInicio AND c.fechaFin <= :fechaFin) " +
+                        "       OR (c.fechaInicio <= :fechaInicio AND c.fechaFin >= :fechaFin)) " +
+                        "       AND c.id != :idCita",
                 Cita.class);
 
         query.setParameter("fechaInicio", fechaInicio);
@@ -117,7 +125,13 @@ public class CitasDAO implements ICitasDAO {
         List<Cita> citas = query.getResultList();
 
         em.getTransaction().commit();
-        return citas;
+        List<Cita> citasSuperpuestas = new ArrayList<>();
+        for (Cita cita : citas) {
+            if (cita.getFechaInicio().isBefore(fechaFin) && cita.getFechaFin().isAfter(fechaInicio)) {
+                citasSuperpuestas.add(cita);
+            }
+        }
+        return citasSuperpuestas;
     }
 
     @Override
