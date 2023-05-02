@@ -100,7 +100,7 @@ public class CitasDAO implements ICitasDAO {
         List<Cita> citas = query.getResultList();
 
         em.getTransaction().commit();
-        em.clear();
+        //em.clear();
         List<Cita> citasSuperpuestas = new ArrayList<>();
         for (Cita cita : citas) {
             if (cita.getFechaInicio().isBefore(fechaFin) && cita.getFechaFin().isAfter(fechaInicio)) {
