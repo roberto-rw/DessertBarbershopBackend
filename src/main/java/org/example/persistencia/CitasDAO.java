@@ -37,6 +37,7 @@ public class CitasDAO implements ICitasDAO {
         em.persist(cita);
 
         em.getTransaction().commit();
+        em.clear();
     }
 
     @Override
@@ -44,6 +45,7 @@ public class CitasDAO implements ICitasDAO {
         em.getTransaction().begin();
         em.remove(cita);
         em.getTransaction().commit();
+        em.clear();
     }
 
     @Override
@@ -51,7 +53,7 @@ public class CitasDAO implements ICitasDAO {
         em.getTransaction().begin();
 
         Cita cita = em.find(Cita.class, nuevaCita.getId());
-
+        Long idEmpleado = cita.getEmpleado().getId();
         Empleado empleado = em.find(Empleado.class, cita.getEmpleado().getId());
         Cliente cliente = em.find(Cliente.class, cita.getCliente().getId());
         Servicio servicio = em.find(Servicio.class, cita.getServicio().getId());
@@ -69,6 +71,8 @@ public class CitasDAO implements ICitasDAO {
         em.persist(cita);
 
         em.getTransaction().commit();
+        em.clear();
+        System.out.println("Despues del commit");
     }
 
     @Override
@@ -76,7 +80,6 @@ public class CitasDAO implements ICitasDAO {
         em.getTransaction().begin();
         Cita cita = em.find(Cita.class, id);
         em.getTransaction().commit();
-        em.clear();
         return cita;
     }
 
@@ -97,6 +100,7 @@ public class CitasDAO implements ICitasDAO {
         List<Cita> citas = query.getResultList();
 
         em.getTransaction().commit();
+        em.clear();
         List<Cita> citasSuperpuestas = new ArrayList<>();
         for (Cita cita : citas) {
             if (cita.getFechaInicio().isBefore(fechaFin) && cita.getFechaFin().isAfter(fechaInicio)) {
@@ -125,6 +129,7 @@ public class CitasDAO implements ICitasDAO {
         List<Cita> citas = query.getResultList();
 
         em.getTransaction().commit();
+        em.clear();
         List<Cita> citasSuperpuestas = new ArrayList<>();
         for (Cita cita : citas) {
             if (cita.getFechaInicio().isBefore(fechaFin) && cita.getFechaFin().isAfter(fechaInicio)) {
@@ -149,6 +154,7 @@ public class CitasDAO implements ICitasDAO {
         List<Cita> citas = selectQuery.getResultList();
 
         em.getTransaction().commit();
+        em.clear();
         return citas;
     }
 

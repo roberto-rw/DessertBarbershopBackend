@@ -38,10 +38,13 @@ public class Main {
 //            e.printStackTrace();
 //        }
 
-        CitasBO citasBO = new CitasBO();
+        em.getTransaction().begin();
+        Cita cita = em.find(Cita.class, 45L);
+        Empleado empleado = em.find(Empleado.class, 1L);
+        cita.setEmpleado(empleado);
+        em.persist(cita);
+        em.getTransaction().commit();
 
-        LocalDateTime inicio = LocalDateTime.of(2023,04,23,13,25);
-        LocalDateTime fin = LocalDateTime.of(2023,04,23,13,35);
 
 
         //System.out.println(citasBO.seEmpalman(inicio, fin));
