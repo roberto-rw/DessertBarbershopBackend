@@ -73,6 +73,11 @@ public class Persistencia implements IPersistencia{
     }
 
     @Override
+    public List<Cita> obtenerCitasPorServicio(Servicio servicio){
+        return citasDAO.obtenerCitasPorServicio(servicio);
+    }
+
+    @Override
     public void agregarCliente(Cliente cliente) {
         clientesDAO.agregarCliente(cliente);
     }

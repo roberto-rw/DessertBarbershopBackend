@@ -1,5 +1,6 @@
 package org.example.negocio;
 
+import com.roberto_rw.entidades.Cita;
 import com.roberto_rw.entidades.Cliente;
 import com.roberto_rw.entidades.Servicio;
 import org.example.fachadas.IPersistencia;
@@ -18,6 +19,8 @@ public class ServiciosBO implements IServiciosBO {
 
     @Override
     public void eliminarServicio(Servicio servicio) {
+        List<Cita> citasServicio = persistencia.obtenerCitasPorServicio(servicio);
+        if(!citasServicio.isEmpty()) throw new RuntimeException("No se puede eliminar un servicio que esté en una o más citas");
         persistencia.eliminarServicio(servicio);
     }
 

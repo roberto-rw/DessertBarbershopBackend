@@ -208,4 +208,13 @@ public class CitasDAO implements ICitasDAO {
 
     }
 
+    @Override
+    public List<Cita> obtenerCitasPorServicio(Servicio servicio) {
+        TypedQuery<Cita> query = em.createQuery("SELECT c FROM Cita c WHERE c.servicio = :idServicio", Cita.class);
+        query.setParameter("idServicio", servicio);
+        List<Cita> citas = query.getResultList();
+
+        return citas;
+    }
+
 }

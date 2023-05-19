@@ -1,5 +1,6 @@
 package org.example.negocio;
 
+import com.roberto_rw.entidades.Cita;
 import com.roberto_rw.entidades.Cliente;
 import org.example.fachadas.IPersistencia;
 import org.example.fachadas.Persistencia;
@@ -16,7 +17,9 @@ public class ClientesBO implements IClientesBO {
     }
 
     @Override
-    public void eliminarCliente(Cliente cliente) {
+    public void eliminarCliente(Cliente cliente){
+        List<Cita> citasCliente = persistencia.obtenerCitasPorCliente(cliente.getNombre());
+        if(!citasCliente.isEmpty()) throw new RuntimeException("No se puede eliminar un cliente con citas agendadas");
         persistencia.eliminarCliente(cliente);
     }
 

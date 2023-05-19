@@ -13,6 +13,7 @@ import org.example.persistencia.CitasDAO;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 public class Main {
@@ -22,39 +23,33 @@ public class Main {
 
         ILogicaNegocio logicaNegocio = new LogicaNegocio();
 
-//        Cita cita = logicaNegocio.obtenerCita(12L);
-//        cita.setFechaInicio(LocalDateTime.of(2023,04,22,2,0,0));
-//        cita.setFechaFin(LocalDateTime.of(2023,04,22,3,0,0));
-
-
-//        Cita cita = new Cita();
-//        cita.setFechaInicio(LocalDateTime.of(2023,04,22,13,0,0));
-//        cita.setFechaFin(LocalDateTime.of(2023,04,22,14,0,0));
+//        Empleado nuevoEmpleado = new Empleado();
+//        LocalTime horaEntrada = LocalTime.of(10,0);
+//        LocalTime horaSalida = LocalTime.of(20,0);
+//
+//        nuevoEmpleado.setTelefono("324242");
+//        nuevoEmpleado.setSalario(50.0);
+//        nuevoEmpleado.setPuesto("Developer");
+//        nuevoEmpleado.setNombre("Roger 2");
+//        nuevoEmpleado.setApellido("Gold");
+//        nuevoEmpleado.setHoraEntrada(horaEntrada);
+//        nuevoEmpleado.setHoraSalida(horaSalida);
+//
 //
 //        try{
-//            logicaNegocio.agregarCita(cita);
-//            //logicaNegocio.actualizarCita(cita);
-//        }catch(Exception e){
+//            logicaNegocio.agregarEmpleado(nuevoEmpleado);
+//        }catch (Exception e){
 //            e.printStackTrace();
 //        }
 
-        em.getTransaction().begin();
-        Cita cita = em.find(Cita.class, 45L);
-        Empleado empleado = em.find(Empleado.class, 1L);
-        cita.setEmpleado(empleado);
-        em.persist(cita);
-        em.getTransaction().commit();
+//        Cliente cliente = logicaNegocio.obtenerCliente(1L);
+////        logicaNegocio.eliminarCliente(cliente);
 
+//        Empleado empleado = logicaNegocio.obtenerEmpleado(1L);
+//        logicaNegocio.eliminarEmpleado(empleado);
 
-
-        //System.out.println(citasBO.seEmpalman(inicio, fin));
-
-//        List<Cita> citasEmpalmadas = logicaNegocio.obtenerCitasPorPeriodo(inicio, fin);
-
-//        for(Cita c: citasEmpalmadas){
-//            System.out.println(c);
-//        }
-
+//        Servicio servicio = logicaNegocio.obtenerServicio(1L);
+//        logicaNegocio.eliminarServicio(servicio);
 
     }
 }

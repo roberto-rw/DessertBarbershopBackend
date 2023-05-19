@@ -21,6 +21,7 @@ public interface IPersistencia {
     public List<Cita> obtenerCitasPorEmpleado(Empleado empleado);
 
     public List<Cita> obtenerCitasPorEmpleadoClienteFecha(LocalDateTime fecha, Empleado empleado, String cliente);
+    public List<Cita> obtenerCitasPorServicio(Servicio servicio);
 
     //Clientes
     public void agregarCliente(Cliente cliente);
