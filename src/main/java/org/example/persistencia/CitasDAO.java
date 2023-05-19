@@ -72,7 +72,6 @@ public class CitasDAO implements ICitasDAO {
 
         em.getTransaction().commit();
         em.clear();
-        System.out.println("Despues del commit");
     }
 
     @Override

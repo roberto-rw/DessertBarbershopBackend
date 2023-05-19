@@ -22,17 +22,27 @@ public class ServiciosDAO implements IServiciosDAO {
 
     @Override
     public void agregarServicio(Servicio servicio) {
-
+        em.getTransaction().begin();
+        em.persist(servicio);
+        em.getTransaction().commit();
     }
 
     @Override
     public void eliminarServicio(Servicio servicio) {
-
+        em.getTransaction().begin();
+        em.remove(servicio);
+        em.getTransaction().commit();
     }
 
     @Override
     public void actualizarServicio(Servicio servicio) {
-
+        em.getTransaction().begin();
+        Servicio nuevoServicio = em.find(Servicio.class, servicio.getId());
+        nuevoServicio.setCategoria(servicio.getCategoria());
+        nuevoServicio.setDescripcion(servicio.getDescripcion());
+        nuevoServicio.setPrecio(servicio.getPrecio());
+        em.persist(nuevoServicio);
+        em.getTransaction().commit();
     }
 
     @Override

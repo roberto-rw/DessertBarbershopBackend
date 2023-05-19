@@ -22,17 +22,27 @@ public class ClientesDAO implements IClientesDAO {
 
     @Override
     public void agregarCliente(Cliente cliente) {
-
+        em.getTransaction().begin();
+        em.persist(cliente);
+        em.getTransaction().commit();
     }
 
     @Override
     public void eliminarCliente(Cliente cliente) {
-
+        em.getTransaction().begin();
+        em.remove(cliente);
+        em.getTransaction().commit();
     }
 
     @Override
     public void actualizarCliente(Cliente cliente) {
-
+        em.getTransaction().begin();
+        Cliente nuevoCliente = em.find(Cliente.class, cliente.getId());
+        nuevoCliente.setNombre(cliente.getNombre());
+        nuevoCliente.setCorreo(cliente.getCorreo());
+        nuevoCliente.setTelefono(cliente.getTelefono());
+        em.persist(nuevoCliente);
+        em.getTransaction().commit();
     }
 
     @Override

@@ -21,17 +21,31 @@ public class EmpleadosDAO implements IEmpleadosDAO {
 
     @Override
     public void agregarEmpleado(Empleado empleado) {
-
+        em.getTransaction().begin();
+        em.persist(empleado);
+        em.getTransaction().commit();
     }
 
     @Override
     public void eliminarEmpleado(Empleado empleado) {
-
+        em.getTransaction().begin();
+        em.remove(empleado);
+        em.getTransaction().commit();
     }
 
     @Override
     public void actualizarEmpleado(Empleado empleado) {
-
+        em.getTransaction().begin();
+        Empleado nuevoEmpleado = em.find(Empleado.class, empleado.getId());
+        nuevoEmpleado.setNombre(empleado.getNombre());
+        nuevoEmpleado.setApellido(empleado.getApellido());
+        nuevoEmpleado.setPuesto(empleado.getPuesto());
+        nuevoEmpleado.setHoraEntrada(empleado.getHoraEntrada());
+        nuevoEmpleado.setHoraSalida(empleado.getHoraSalida());
+        nuevoEmpleado.setSalario(empleado.getSalario());
+        nuevoEmpleado.setTelefono(empleado.getTelefono());
+        em.persist(nuevoEmpleado);
+        em.getTransaction().commit();
     }
 
     @Override
